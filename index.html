@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shower Presentation Engine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Shower Presentation Engine</h1>
+        <p>Yours Truly, Famous Inc.</p>
+    </header>
+
+    <section class="slide">
+        <h1>Графовые СУБД</h1>
+        <h3>Обзор возможностей и сферы применения</h3>
+    </section>
+
+    <section class="slide">
+        <h2>Графовые СУБД существуют</h2>
+        <h3 class="next">Систем управления базами данных много</h3>
+    </section>
+    <section class="slide">
+        <h2>Есть вот такие - </h2>
+        <ol class="list">
+            <li class="next">Колоночные</li>
+            <li class="next">Хэш-таблицы</li>
+            <li class="next">Документоориентированные</li>
+        </ol>
+    </section>
+    <section class="slide">
+        <h2>Ещё такие - </h2>
+        <ol class="width">
+            <li class="next">Поисковые</li>
+            <li class="next">Native XML</li>
+            <li class="next">Пространственные Geo/Gis</li>
+            <li class="next">Векторные</li>
+        </ol>
+    </section>
+    <section class="slide">
+        <h2>И такие - </h2>
+        <ol class="cover">
+            <li class="next">Реляционные</li>
+            <li class="next">Графовые</li>
+        </ol>
+    </section>
+    <section class="slide">
+        <h2 class="next">Для каждой задачи - свой инструмент (возможно цитата Макконнела)</h2>
+        <br>
+        <br>
+        <h2 class="next">Вводные данные абстрактной задачи</h2>
+    </section>
+    <section class="slide">
+        <h3 class="next">Вводные данные абстрактной задачи</h3>
+        <ul>
+            <li class="next">Человек </li>
+            <li class="next">Человек - Автомобиль</li>
+            <li class="next">Человек - Автомобиль - Автосервис</li>
+            <li class="next">Человек - Автомобиль - Автосервис - Запчасти</li>
+            <li class="next">Человек - Автомобиль - Автосервис - Запчасти - Поставщик</li>
+            <li class="next">Человек - Автомобиль - Автосервис - Запчасти - Поставщик - Город</li>
+        </ul>
+    </section>
+    <section class="slide">
+        <h1>Картинка - Grid, где перечеркнуты пошагово все варианты кроме графовых и реляционных</h1>
+        <h3>Обзор возможностей и сферы применения</h3>
+    </section>
+
+
+    <section class="slide">
+        <h1>NoSQL - не для связей</h1>
+        <h3>Обзор возможностей и сферы применения</h3>
+    </section>
+    <section class="slide">
+        <h1>Картинка про то, что nosql не для связей, а sql для связей</h1>
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="node_modules/@shower/core/dist/shower.js"></script>
+    <!-- Copyright © 2024 Yours Truly, Famous Inc. -->
+
+</body>
+</html>
