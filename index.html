@@ -60,26 +60,111 @@
     <section class="slide">
         <h3 class="next">Вводные данные абстрактной задачи</h3>
         <ul>
-            <li class="next">Человек </li>
-            <li class="next">Человек - Автомобиль</li>
-            <li class="next">Человек - Автомобиль - Автосервис</li>
-            <li class="next">Человек - Автомобиль - Автосервис - Запчасти</li>
-            <li class="next">Человек - Автомобиль - Автосервис - Запчасти - Поставщик</li>
-            <li class="next">Человек - Автомобиль - Автосервис - Запчасти - Поставщик - Город</li>
+            <li class="next">Пользователь </li>
+            <li class="next">Пользователь - Пользователь (отношение)</li>
+            <li class="next">Пользователь - Фильм</li>
+            <li class="next">Фильм - Жанр</li>
+            <li class="next">Фильм - Актер</li>
+            <li class="next">Пользователь - Актер</li>
         </ul>
     </section>
     <section class="slide">
-        <h1>Картинка - Grid, где перечеркнуты пошагово все варианты кроме графовых и реляционных</h1>
-        <h3>Обзор возможностей и сферы применения</h3>
-    </section>
-
-
-    <section class="slide">
-        <h1>NoSQL - не для связей</h1>
-        <h3>Обзор возможностей и сферы применения</h3>
+        <img src="images/Слайд1.JPG" class="cover">
     </section>
     <section class="slide">
-        <h1>Картинка про то, что nosql не для связей, а sql для связей</h1>
+        <img src="images/Слайд2.JPG" class="cover">
+    </section>
+    <section class="slide">
+        <img src="images/Слайд3.JPG" class="cover">
+    </section>
+    <section class="slide">
+        <img src="images/Слайд4.JPG" class="cover">
+    </section>
+    <section class="slide">
+        <img src="images/Слайд5.JPG" class="cover">
+    </section>
+    <section class="slide">
+        <img src="images/Слайд6.JPG" class="cover">
+    </section>
+    <section class="slide">
+        <img src="images/Слайд7.JPG" class="cover">
+    </section>
+    <section class="slide">
+        <h3>Картинка, где реляционные и графовые крупным планом</h3>
+    </section>
+    <section class="slide">
+        <h4>Обратимся ещё раз к ТЗ</h4>
+        <ol>
+            <li class="next">Сущности имеют строго определенный набор атрибутов</li>
+            <li class="next">Сущностей на начальном этапе будет > 6-7 и кол-во будет расти</li>
+            <li class="next">Сущности будут связаны</li>
+        </ol>
+    </section>
+    <section class="slide">
+        <h3>Связи решают всё</h3>
+    </section>
+    <section class="slide">
+        <img src="images/Слайд8.JPG" class="cover">
+    </section>
+    <section class="slide">
+        <h3>Картинка "что там под капотом"</h3>
+    </section>
+    <section class="slide">
+        <h4>История связей в рел. СУБД</h4>
+        <ol>
+            <li class="next">Изначально не несли в себе потребности в сложных связях</li>
+            <li class="next">Из-за реалий прошлого неудобства работы реляционной модели в условиях сильно связанных данных были проигнорированы</li>
+            <li class="next">Упростила сетевую и иерархическую модели</li>
+        </ol>
+    </section>
+    <section class="slide">
+        <h4>Связи в реляционных СУБД</h4>
+        <p>В классике бывают трёх типов - </p>
+        <ol>
+            <li class="next">Внутреннее соединение (INNER JOIN или просто JOIN)</li>
+            <li class="next">Левое/Правое/Полное внешнее соединение (LEFT/RIGHT/FULL OUTER JOIN или просто LEFT JOIN) </li>
+            <li class="next">Полусоединения и антисоединения. Явных нет, но к ним приводят EXISTS и NOT EXISTS.</li>
+        </ol>
+    </section>
+    <section class="slide">
+        <h3>Картинка с множествами</h3>
+    </section>
+    <section class="slide">
+        <h4>Это всё - логика</h4>
+        <ol>
+            <li class="next">БД реляционные, поэтому на низком уровне всё также работают по правилам реляционной алгебры</li>
+            <li class="next">На больших объёмах данных и когда связей между таблицами много - система деградирует</li>
+            <li class="next">Сам SQL стандартизирован и строг, но не всегда гибок и удобен</li>
+        </ol>
+    </section>
+    <section class="slide">
+        <h4>Над этим работают</h4>
+        <ol>
+            <li class="next">В некоторых случаях связи могут обрабатываться в паралелльном режиме</li>
+            <li class="next">Развиваются и сами способы соединений
+                <ul>
+                    <li>Nested loop</li>
+                    <li>Hash Join</li>
+                    <li>Merge Join</li>
+                </ul>
+            </li>
+        </ol>
+    </section>
+    <section class="slide">
+        <h3>Вкратце рассказать про работу планировщика на примере Postgresql</h3>
+    </section>
+
+    <section class="slide">
+        <h4>Связи в графовых СУБД</h4>
+        <ol>
+            <li class="next">Представление - Вершины и рёбра, которые можно дополнить скалярными атрибутами</li>
+            <li class="next">Навигация по глубоким и длинным цепочкам ускорена</li>
+            <li class="next">Есть - шаблон обхода графа, безиндексная смежность. Нет - поиска по индексу и определение стратегий соединения</li>
+            <li class="next">Доступ к узлам и отношениям - это доступ к ячейке памяти</li>
+        </ol>
+    </section>
+    <section class="slide">
+        <h3>Картинка "что там под капотом"</h3>
     </section>
 
     <footer class="badge">
