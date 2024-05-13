@@ -4,7 +4,7 @@
     <title>Shower Presentation Engine</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/styles.css">
+    <link rel="stylesheet" href="shower/themes/rndphp/styles/styles.css">
     <style>
         .shower {
             --slide-ratio: calc(16 / 9);
@@ -12,191 +12,270 @@
     </style>
 </head>
 <body class="shower list">
+<section class="slide preview">
+    <div class="lines"></div>
+    <div class="stripes"></div>
+    <h1>Графовые СУБД</h1>
+    <p>Пётр Клёнкин</p>
+</section>
 
-    <header class="caption">
-        <h1>Shower Presentation Engine</h1>
-        <p>Yours Truly, Famous Inc.</p>
-    </header>
+<section class="slide">
+    <h1>Графовые СУБД</h1>
+    <h3>Сравнение механизма связей в реляционных и графовых СУБД в условиях типовой задачи. Бенчмарки и разбор
+        недостатков/преимуществ обоих подходов.</h3>
+</section>
 
-    <section class="slide">
-        <h1>Графовые СУБД</h1>
-        <h3>Обзор возможностей и сферы применения</h3>
-    </section>
+<section class="slide">
+    <h3>Докладчик</h3>
+    <ul>
+        <li class="next">Работаю техлидом в отделе back-end разработки</li>
+        <li class="next">В <b>Webpractik</b></li>
+        <li class="next"><b>ЯП</b> - NodeJS, PHP</li>
+    </ul>
+</section>
+<section class="slide">
+    <h3>План презентации.</h3>
+    <h1>TODO - План презентации.</h1>
+</section>
+<section class="slide">
+    <h1>TODO - Переход по главам.</h1>
+</section>
 
-    <section class="slide">
-        <h1>TODO - Кто я, кем работаю.</h1>
-    </section>
-    <section class="slide">
-        <h1>TODO - План презентации.</h1>
-    </section>
-    <section class="slide">
-        <h1>TODO - Переход по главам.</h1>
-    </section>
+<section class="slide">
+    <h2>Графовые СУБД существуют</h2>
+    <h3 class="next">Систем управления базами данных много</h3>
+</section>
+<section class="slide">
+    <h2>Есть вот такие - </h2>
+    <ol class="list">
+        <li class="next">Колоночные</li>
+        <li class="next">Хэш-таблицы</li>
+        <li class="next">Документоориентированные</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>Ещё такие - </h2>
+    <ol class="width">
+        <li class="next">Поисковые</li>
+        <li class="next">Native XML</li>
+        <li class="next">Пространственные Geo/Gis</li>
+        <li class="next">Векторные</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>И такие - </h2>
+    <ol class="width">
+        <li class="next">Реляционные</li>
+        <li class="next">Графовые</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2 class="next">Для каждой задачи - свой инструмент (возможно цитата Макконнела)</h2>
+    <br>
+    <br>
+    <h2 class="next">Вводные данные абстрактной задачи</h2>
+</section>
+<section class="slide">
+    <h3 class="next">Вводные данные абстрактной задачи</h3>
+    <ul>
+        <li class="next">Пользователь</li>
+        <li class="next">Пользователь - Пользователь (отношение)</li>
+        <li class="next">Пользователь - Фильм</li>
+        <li class="next">Фильм - Жанр</li>
+        <li class="next">Фильм - Актер</li>
+        <li class="next">Пользователь - Актер</li>
+    </ul>
+</section>
+<section class="slide">
+    <img src="images/Слайд1.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/Слайд2.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/Слайд3.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/Слайд4.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/Слайд5.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/Слайд6.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/Слайд7.JPG" class="cover">
+</section>
+<section class="slide">
+    <h3>Картинка, где реляционные и графовые крупным планом</h3>
+</section>
+<section class="slide">
+    <h4>Обратимся ещё раз к ТЗ</h4>
+    <ol>
+        <li class="next">Сущности имеют строго определенный набор атрибутов</li>
+        <li class="next">Сущностей на начальном этапе будет > 6-7 и кол-во будет расти</li>
+        <li class="next">Сущности будут связаны</li>
+    </ol>
+</section>
+<section class="slide">
+    <h3>Связи решают всё</h3>
+</section>
+<section class="slide">
+    <img src="images/Слайд8.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/Слайд12.JPG" class="cover">
+</section>
+<section class="slide">
+    <h4>История связей в рел. СУБД</h4>
+    <ol>
+        <li class="next">Изначально не несли в себе потребности в сложных связях</li>
+        <li class="next">Из-за реалий прошлого неудобства работы реляционной модели в условиях сильно связанных данных
+            были проигнорированы
+        </li>
+        <li class="next">Упростила сетевую и иерархическую модели</li>
+    </ol>
+</section>
+<section class="slide">
+    <h4>Связи в реляционных СУБД</h4>
+    <p>В классике бывают трёх типов - </p>
+    <ol>
+        <li class="next">Внутреннее соединение (INNER JOIN или просто JOIN)</li>
+        <li class="next">Левое/Правое/Полное внешнее соединение (LEFT/RIGHT/FULL OUTER JOIN или просто LEFT JOIN)</li>
+        <li class="next">Полусоединения и антисоединения. Явных нет, но к ним приводят EXISTS и NOT EXISTS.</li>
+    </ol>
+</section>
+<section class="slide">
+    <img src="images/Презентация1.jpg" class="cover">
+</section>
+<section class="slide">
+    <h4>Это всё - логика</h4>
+    <ol>
+        <li class="next">БД реляционные, поэтому на низком уровне всё также работают по правилам реляционной алгебры
+        </li>
+        <li class="next">На больших объёмах данных и когда связей между таблицами много - система деградирует</li>
+        <li class="next">Сам SQL стандартизирован и строг, но не всегда гибок и удобен</li>
+    </ol>
+</section>
+<section class="slide">
+    <h4>Над этим работают</h4>
+    <ol>
+        <li class="next">Развиваются сами способы соединений
+            <ul>
+                <li>Nested loop</li>
+                <li>Hash Join</li>
+                <li>Merge Join</li>
+            </ul>
+        </li>
+    </ol>
+</section>
+<section class="slide">
+    <h3>Nested loop</h3>
+    <ul>
+        <li class="next">Вложенный = (внутренний + внешний) * n раз</li>
+        <li class="next">Для каждой строки во внутр. цикле перебираются все строки во внешнем цикле, пока не
+            соединятся
+        </li>
+        <li class="next">Рез-ты внешнего цикла пишутся в work_mem, затем в файл</li>
+    </ul>
+</section>
+<section class="slide">
+    <h3>Hash join</h3>
+    <ul>
+        <li class="next">В Nested loop куски таблицы срезами кладутся в память/файл</li>
+        <li class="next">В Hash join по таблицам внутреннего цикла строится хеш-таблица</li>
+        <li class="next">Если в ней есть запись, которая удовлетворяет условиям - очередной обход цикла не происходит</li>
+        <li class="next">Работает по принципу "холодного" списка</li>
+    </ul>
+</section>
+<section class="slide">
+    <h3>Картинка с "холодным/горячим" списком</h3>
+</section>
+<section class="slide">
+    <h3>Merge Join</h3>
+    <ul>
+        <li class="next">Работа с набором строк, который может читать одновременно</li>
+        <li class="next">Получив строку внешнего набора в паралл. режиме, строчки внутреннего набора перебираются последовательно</li>
+        <li class="next">Рез-ты внешнего цикла пишутся в work_mem, затем в файл</li>
+    </ul>
+</section>
+<section class="slide">
+    <h3>Картинка с параллельной обработкой</h3>
+</section>
 
-    <section class="slide">
-        <h2>Графовые СУБД существуют</h2>
-        <h3 class="next">Систем управления базами данных много</h3>
-    </section>
-    <section class="slide">
-        <h2>Есть вот такие - </h2>
-        <ol class="list">
-            <li class="next">Колоночные</li>
-            <li class="next">Хэш-таблицы</li>
-            <li class="next">Документоориентированные</li>
-        </ol>
-    </section>
-    <section class="slide">
-        <h2>Ещё такие - </h2>
-        <ol class="width">
-            <li class="next">Поисковые</li>
-            <li class="next">Native XML</li>
-            <li class="next">Пространственные Geo/Gis</li>
-            <li class="next">Векторные</li>
-        </ol>
-    </section>
-    <section class="slide">
-        <h2>И такие - </h2>
-        <ol class="cover">
-            <li class="next">Реляционные</li>
-            <li class="next">Графовые</li>
-        </ol>
-    </section>
-    <section class="slide">
-        <h2 class="next">Для каждой задачи - свой инструмент (возможно цитата Макконнела)</h2>
-        <br>
-        <br>
-        <h2 class="next">Вводные данные абстрактной задачи</h2>
-    </section>
-    <section class="slide">
-        <h3 class="next">Вводные данные абстрактной задачи</h3>
-        <ul>
-            <li class="next">Пользователь </li>
-            <li class="next">Пользователь - Пользователь (отношение)</li>
-            <li class="next">Пользователь - Фильм</li>
-            <li class="next">Фильм - Жанр</li>
-            <li class="next">Фильм - Актер</li>
-            <li class="next">Пользователь - Актер</li>
-        </ul>
-    </section>
-    <section class="slide">
-        <img src="images/Слайд1.JPG" class="cover">
-    </section>
-    <section class="slide">
-        <img src="images/Слайд2.JPG" class="cover">
-    </section>
-    <section class="slide">
-        <img src="images/Слайд3.JPG" class="cover">
-    </section>
-    <section class="slide">
-        <img src="images/Слайд4.JPG" class="cover">
-    </section>
-    <section class="slide">
-        <img src="images/Слайд5.JPG" class="cover">
-    </section>
-    <section class="slide">
-        <img src="images/Слайд6.JPG" class="cover">
-    </section>
-    <section class="slide">
-        <img src="images/Слайд7.JPG" class="cover">
-    </section>
-    <section class="slide">
-        <h3>Картинка, где реляционные и графовые крупным планом</h3>
-    </section>
-    <section class="slide">
-        <h4>Обратимся ещё раз к ТЗ</h4>
-        <ol>
-            <li class="next">Сущности имеют строго определенный набор атрибутов</li>
-            <li class="next">Сущностей на начальном этапе будет > 6-7 и кол-во будет расти</li>
-            <li class="next">Сущности будут связаны</li>
-        </ol>
-    </section>
-    <section class="slide">
-        <h3>Связи решают всё</h3>
-    </section>
-    <section class="slide">
-        <img src="images/Слайд8.JPG" class="cover">
-    </section>
-    <section class="slide">
-        <img src="images/Слайд12.JPG" class="cover">
-    </section>
-    <section class="slide">
-        <h4>История связей в рел. СУБД</h4>
-        <ol>
-            <li class="next">Изначально не несли в себе потребности в сложных связях</li>
-            <li class="next">Из-за реалий прошлого неудобства работы реляционной модели в условиях сильно связанных данных были проигнорированы</li>
-            <li class="next">Упростила сетевую и иерархическую модели</li>
-        </ol>
-    </section>
-    <section class="slide">
-        <h4>Связи в реляционных СУБД</h4>
-        <p>В классике бывают трёх типов - </p>
-        <ol>
-            <li class="next">Внутреннее соединение (INNER JOIN или просто JOIN)</li>
-            <li class="next">Левое/Правое/Полное внешнее соединение (LEFT/RIGHT/FULL OUTER JOIN или просто LEFT JOIN) </li>
-            <li class="next">Полусоединения и антисоединения. Явных нет, но к ним приводят EXISTS и NOT EXISTS.</li>
-        </ol>
-    </section>
-    <section class="slide">
-        <img src="images/Презентация1.jpg" class="cover">
-    </section>
-    <section class="slide">
-        <h4>Это всё - логика</h4>
-        <ol>
-            <li class="next">БД реляционные, поэтому на низком уровне всё также работают по правилам реляционной алгебры</li>
-            <li class="next">На больших объёмах данных и когда связей между таблицами много - система деградирует</li>
-            <li class="next">Сам SQL стандартизирован и строг, но не всегда гибок и удобен</li>
-        </ol>
-    </section>
-    <section class="slide">
-        <h4>Над этим работают</h4>
-        <ol>
-            <li class="next">В некоторых случаях связи могут обрабатываться в паралелльном режиме</li>
-            <li class="next">Развиваются и сами способы соединений
-                <ul>
-                    <li>Nested loop</li>
-                    <li>Hash Join</li>
-                    <li>Merge Join</li>
-                </ul>
-            </li>
-        </ol>
-    </section>
-    <section class="slide">
-        <h3>Вкратце рассказать про работу планировщика на примере Postgresql</h3>
-    </section>
+<section class="slide">
+    <h3>Картинка с переходом в графы</h3>
+</section>
 
-    <section class="slide">
-        <h4>Связи в графовых СУБД</h4>
-        <ol>
-            <li class="next">Представление - Вершины и рёбра, которые можно дополнить скалярными атрибутами</li>
-            <li class="next">Навигация по глубоким и длинным цепочкам ускорена</li>
-            <li class="next">Есть - шаблон обхода графа, безиндексная смежность. Нет - поиска по индексу и определение стратегий соединения</li>
-            <li class="next">Доступ к узлам и отношениям - это доступ к ячейке памяти</li>
-        </ol>
-    </section>
-    <section class="slide">
-        <h3>Картинка "что там под капотом"</h3>
-    </section>
-    <section class="slide">
-        <h1>TODO - Примеры использования.</h1>
-    </section>
-    <section class="slide">
-        <h1>TODO - Кейс с постгрессом и графы.</h1>
-    </section>
-    <section class="slide">
-        <h1>TODO - Практическое применение - сферы применения, графовые субд + реляционные, как распилить монолит.</h1>
-    </section>
-    <section class="slide">
-        <h1>TODO - Кейс с постгрессом и графы.</h1>
-    </section>
+<section class="slide">
+    <h4>Связи в графовых СУБД</h4>
+    <ol>
+        <li class="next">Представление - Вершины и рёбра, которые можно дополнить скалярными атрибутами</li>
+        <li class="next">Навигация по глубоким и длинным цепочкам ускорена</li>
+        <li class="next">Есть - шаблон обхода графа, безиндексная смежность. Нет - поиска по индексу и определение
+            стратегий соединения
+        </li>
+        <li class="next">Доступ к узлам и отношениям - это доступ к ячейке памяти</li>
+    </ol>
+</section>
+<section class="slide">
+    <h3>Картинка "человек пишет код"</h3>
+</section>
+<section class="slide">
+    <h4>Neo4j</h4>
+    <ol>
+        <li class="next">Поставим через докер</li>
+        <li class="next">Поднимется сама и на 7474 поднимет UI</li>
+        <li class="next">В UI разделит время выполнения запроса от отрисовки</li>
+        <li class="next">Started streaming 1 records after 11 ms and completed after 22 ms</li>
+    </ol>
+</section>
+<section class="slide">
+        <pre style="font-family:monospace; font-size: 25px;"><code>
+            docker run \
+            --restart always \
+            --publish=7474:7474 --publish=7687:7687 \
+            neo4j:5.19.0
+        </code></pre>
+</section>
+<section class="slide">
+    <img src="images/neo4j.png" class="cover">
+</section>
 
-    <footer class="badge">
-        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
-    </footer>
 
-    <div class="progress"></div>
+<section class="slide">
+    <h1>Графы имеет смысл рассмотреть, когда</h1>
+    <ol>
+        <li class="next">Схема вашей БД "нативно" представляется в виде графа</li>
+        <li class="next">Связей так много, что таблицы связей больше таблиц данных</li>
+        <li class="next">Типовые запросы получения данных сложны и состоят из множества join-ов</li>
+        <li class="next">Есть необходимость в частом получении данных или глубина поиска достаточно большая (>3)</li>
+    </ol>
+</section>
+<section class="slide">
+    <h1>Но нужно учитывать, что</h1>
+    <ol>
+        <li class="next">Во всех случаях кроме тех, что выше - реляционная БД обгонит графы</li>
+        <li class="next">Для работы графовых СУБД необходимо 2гб ОЗУ, для стабильной работы - 16гб</li>
+        <li class="next">Конкретно Neo4j - проприетарная</li>
+    </ol>
+</section>
+<section class="slide">
+    <h1>TODO - Кейс с постгрессом и графы.</h1>
+</section>
+<section class="slide">
+    <h1>TODO - Практическое применение - сферы применения, графовые субд + реляционные, как распилить монолит.</h1>
+</section>
 
-    <script src="node_modules/@shower/core/dist/shower.js"></script>
-    <!-- Copyright © 2024 Yours Truly, Famous Inc. -->
+<footer class="badge">
+    <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+</footer>
+
+<div class="progress"></div>
+
+<script src="node_modules/@shower/core/dist/shower.js"></script>
+<!-- Copyright © 2024 Yours Truly, Famous Inc. -->
 
 </body>
 </html>
