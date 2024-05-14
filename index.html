@@ -15,65 +15,35 @@
 <section class="slide preview">
     <div class="lines"></div>
     <div class="stripes"></div>
-    <h1>Графовые СУБД</h1>
+    <h1>Когда стоит использовать графовые СУБД?</h1>
     <p>Пётр Клёнкин</p>
 </section>
-
-<section class="slide">
-    <h1>Графовые СУБД</h1>
-    <h3>Сравнение механизма связей в реляционных и графовых СУБД в условиях типовой задачи. Бенчмарки и разбор
-        недостатков/преимуществ обоих подходов.</h3>
-</section>
-
 <section class="slide">
     <h3>Докладчик</h3>
     <ul>
         <li class="next">Работаю техлидом в отделе back-end разработки</li>
         <li class="next">В <b>Webpractik</b></li>
-        <li class="next"><b>ЯП</b> - NodeJS, PHP</li>
+        <li class="next"><b>Пишу на</b> - NodeJS, PHP</li>
+        <li class="next">более 6 лет опыта</li>
     </ul>
 </section>
 <section class="slide">
+    <h1>Графовые СУБД</h1>
+    <h3>Сравнение механизма связей в реляционных и графовых СУБД в условиях типовой задачи. Бенчмарки и разбор
+        недостатков/преимуществ обоих подходов.</h3>
+</section>
+<section class="slide">
     <h3>План презентации.</h3>
-    <h1>TODO - План презентации.</h1>
-</section>
-<section class="slide">
-    <h1>TODO - Переход по главам.</h1>
-</section>
-
-<section class="slide">
-    <h2>Графовые СУБД существуют</h2>
-    <h3 class="next">Систем управления базами данных много</h3>
-</section>
-<section class="slide">
-    <h2>Есть вот такие - </h2>
     <ol class="list">
-        <li class="next">Колоночные</li>
-        <li class="next">Хэш-таблицы</li>
-        <li class="next">Документоориентированные</li>
+        <li class="next">Поставим прикладную задачу</li>
+        <li class="next">Подберём под неё пару подходящих СУБД</li>
+        <li class="next">Рассмотрим внутреннюю механику работы обеих</li>
+        <li class="next">Решим задачу и посмотрим бенчмарки</li>
+        <li class="next">Сделаем выводы</li>
     </ol>
 </section>
 <section class="slide">
-    <h2>Ещё такие - </h2>
-    <ol class="width">
-        <li class="next">Поисковые</li>
-        <li class="next">Native XML</li>
-        <li class="next">Пространственные Geo/Gis</li>
-        <li class="next">Векторные</li>
-    </ol>
-</section>
-<section class="slide">
-    <h2>И такие - </h2>
-    <ol class="width">
-        <li class="next">Реляционные</li>
-        <li class="next">Графовые</li>
-    </ol>
-</section>
-<section class="slide">
-    <h2 class="next">Для каждой задачи - свой инструмент (возможно цитата Макконнела)</h2>
-    <br>
-    <br>
-    <h2 class="next">Вводные данные абстрактной задачи</h2>
+    <h3>Картинка, "ставим задачу"</h3>
 </section>
 <section class="slide">
     <h3 class="next">Вводные данные абстрактной задачи</h3>
@@ -86,6 +56,29 @@
         <li class="next">Пользователь - Актер</li>
     </ul>
 </section>
+<section class="slide">
+    <h2 class="shout">Выбор СУБД</h2>
+</section>
+<section class="slide">
+    <h2>Типы СУБД - </h2>
+    <ol class="list">
+        <li class="next">Колоночные</li>
+        <li class="next">Хэш-таблицы</li>
+        <li class="next">Документоориентированные</li>
+        <li class="next">Поисковые</li>
+        <li class="next">Native XML</li>
+        <li class="next">Пространственные Geo/Gis</li>
+        <li class="next">Векторные</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>Типы СУБД - </h2>
+    <ol class="width">
+        <li class="next" value="8">Реляционные</li>
+        <li class="next" value="9">Графовые</li>
+    </ol>
+</section>
+
 <section class="slide">
     <img src="images/Слайд1.JPG" class="cover">
 </section>
@@ -111,7 +104,7 @@
     <h3>Картинка, где реляционные и графовые крупным планом</h3>
 </section>
 <section class="slide">
-    <h4>Обратимся ещё раз к ТЗ</h4>
+    <h2>Обратимся ещё раз к ТЗ</h2>
     <ol>
         <li class="next">Сущности имеют строго определенный набор атрибутов</li>
         <li class="next">Сущностей на начальном этапе будет > 6-7 и кол-во будет расти</li>
@@ -222,6 +215,10 @@
 <section class="slide">
     <h3>Картинка "человек пишет код"</h3>
 </section>
+<section class="slide">
+    <h3>Картинка почему Neo4j</h3>
+</section>
+
 <section class="slide">
     <h4>Neo4j</h4>
     <ol>
