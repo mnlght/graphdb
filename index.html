@@ -101,7 +101,7 @@
     <img src="images/Слайд7.JPG" class="cover">
 </section>
 <section class="slide">
-    <h3>Картинка, где реляционные и графовые крупным планом</h3>
+    <img src="images/x.png" class="cover">
 </section>
 <section class="slide">
     <h2>Обратимся ещё раз к ТЗ</h2>
@@ -174,6 +174,9 @@
     </ul>
 </section>
 <section class="slide">
+    <img src="images/single.jpg" class="cover">
+</section>
+<section class="slide">
     <h3>Hash join</h3>
     <ul>
         <li class="next">В Nested loop куски таблицы срезами кладутся в память/файл</li>
@@ -183,7 +186,7 @@
     </ul>
 </section>
 <section class="slide">
-    <h3>Картинка с "холодным/горячим" списком</h3>
+    <img src="images/list.jpg" class="cover">
 </section>
 <section class="slide">
     <h3>Merge Join</h3>
@@ -194,7 +197,7 @@
     </ul>
 </section>
 <section class="slide">
-    <h3>Картинка с параллельной обработкой</h3>
+    <img src="images/parallel.jpg" class="cover">
 </section>
 
 <section class="slide">
@@ -213,14 +216,14 @@
     </ol>
 </section>
 <section class="slide">
-    <h3>Картинка "человек пишет код"</h3>
+    <img src="images/comp.jpg" class="cover">
 </section>
 <section class="slide">
     <h3>Картинка почему Neo4j</h3>
 </section>
 
 <section class="slide">
-    <h4>Neo4j</h4>
+    <h2>Neo4j</h2>
     <ol>
         <li class="next">Поставим через докер</li>
         <li class="next">Поднимется сама и на 7474 поднимет UI</li>
@@ -239,10 +242,37 @@
 <section class="slide">
     <img src="images/neo4j.png" class="cover">
 </section>
-
-
 <section class="slide">
-    <h1>Графы имеет смысл рассмотреть, когда</h1>
+    <img src="images/code-window.png" class="cover">
+</section>
+<section class="slide">
+    <h2 class="shout">Язык запросов CYPHER</h2>
+</section>
+<section class="slide">
+        <pre style="font-family:monospace; font-size: 20px;"><code>
+            CREATE
+            (igor: Person {name:'Igor'}),
+            (misha: Person {name:'Misha'}),
+            (tobin: Actor {name:'Tobin'}),
+            (saw: Movie {name:'Saw'}),
+            (horror: Genre {name:'Horror'}),
+            (saw) -[:HAS_GENRE]-> (horror),
+            (saw) -[:HAS_ACTOR]-> (tobin),
+            (igor) -[:WATCHED]-> (saw),
+            (igor) -[:IS_FRIEND]-> (misha),
+            (igor) -[:IS_SIGN]-> (tobin)
+        </code></pre>
+</section>
+<section class="slide">
+    <h2>Запросы</h2>
+    <ol>
+        <li class="next">Список пользователей, друзьям которых нравится актёр из n фильма</li>
+        <li class="next">Получить список жанров, которые нравятся пользователям n</li>
+        <li class="next">Получить список фильмов-хорроров, которые смотрели друзья друзей пользователя, но он - нетsee</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>Графы имеет смысл рассмотреть, когда</h2>
     <ol>
         <li class="next">Схема вашей БД "нативно" представляется в виде графа</li>
         <li class="next">Связей так много, что таблицы связей больше таблиц данных</li>
@@ -251,7 +281,7 @@
     </ol>
 </section>
 <section class="slide">
-    <h1>Но нужно учитывать, что</h1>
+    <h2>Но нужно учитывать, что</h2>
     <ol>
         <li class="next">Во всех случаях кроме тех, что выше - реляционная БД обгонит графы</li>
         <li class="next">Для работы графовых СУБД необходимо 2гб ОЗУ, для стабильной работы - 16гб</li>
@@ -259,10 +289,35 @@
     </ol>
 </section>
 <section class="slide">
+    <h3>Картинка  - человек запихивает в коробку с надписью постгрес графы</h3>
+</section>
+<section class="slide">
     <h1>TODO - Кейс с постгрессом и графы.</h1>
 </section>
 <section class="slide">
+    <h3>Картинка  - на экране граф, человек думает и вопросительный знак</h3>
+</section>
+<section class="slide">
     <h1>TODO - Практическое применение - сферы применения, графовые субд + реляционные, как распилить монолит.</h1>
+</section>
+<section class="slide">
+    <h2>Общепринятая сфера применения графов</h2>
+    <ol>
+        <li class="next">Сервисы рекомендаций</li>
+        <li class="next">Социальные сети</li>
+        <li class="next">Системы контроля доступа</li>
+        <li class="next">Системы оповещения</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>Применение </h2>
+    <ol>
+        <li class="next">При распиле монолита часть БД вынести в графы</li>
+        <li class="next">Совместить в своём приложении несколько СУБД</li>
+        <li class="next">Драйверы есть даже на PHP</li>
+        <li class="next">Системы контроля доступа</li>
+        <li class="next">Системы оповещения</li>
+    </ol>
 </section>
 
 <footer class="badge">
