@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shower Presentation Engine</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/rndphp/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+<section class="slide preview">
+    <div class="lines"></div>
+    <div class="stripes"></div>
+    <h1>Когда стоит использовать графовые СУБД?</h1>
+    <p>Пётр Клёнкин</p>
+</section>
+<section class="slide">
+    <h2>Докладчик</h2>
+    <ul>
+        <li class="next">Работаю техлидом в отделе back-end разработки</li>
+        <li class="next">В <b>Webpractik</b></li>
+        <li class="next"><b>Пишу на</b> - NodeJS, PHP</li>
+        <li class="next">более 6 лет опыта</li>
+    </ul>
+</section>
+<section class="slide">
+    <h2 class="shout">Графовые СУБД</h2>
+</section>
+<section class="slide">
+    <h2>Графовые СУБД</h2>
+    <ol class="list">
+        <li class="next">Поставим прикладную задачу</li>
+        <li class="next">Подберём под неё пару подходящих СУБД</li>
+        <li class="next">Рассмотрим внутреннюю механику работы обеих</li>
+        <li class="next">Решим задачу и посмотрим бенчмарки</li>
+        <li class="next">Разбор недостатков/преимуществ обоих подходов</li>
+        <li class="next">Сфера применения</li>
+        <li class="next">Сделаем выводы</li>
+    </ol>
+</section>
+<section class="slide">
+    <img src="images/get_task.jpg" class="cover">
+</section>
+<section class="slide">
+    <h2 class="next">Вводные данные типовой задачи</h2>
+    <ul>
+        <li class="next">Пользователь</li>
+        <li class="next">Пользователь - Пользователь (отношение)</li>
+        <li class="next">Пользователь - Фильм</li>
+        <li class="next">Фильм - Жанр</li>
+        <li class="next">Фильм - Актер</li>
+        <li class="next">Пользователь - Актер</li>
+    </ul>
+</section>
+<section class="slide">
+    <h2 class="shout">Выбор СУБД</h2>
+</section>
+<section class="slide">
+    <h2>Типы СУБД - </h2>
+    <ol class="list">
+        <li class="next">Колоночные</li>
+        <li class="next">Хэш-таблицы</li>
+        <li class="next">Документоориентированные</li>
+        <li class="next">Поисковые</li>
+        <li class="next">Native XML</li>
+        <li class="next">Пространственные Geo/Gis</li>
+        <li class="next">Векторные</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>Типы СУБД - </h2>
+    <ol class="width">
+        <li class="next" value="8">Реляционные</li>
+        <li class="next" value="9">Графовые</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <img src="images/Слайд1.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/Слайд2.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/Слайд3.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/Слайд4.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/Слайд5.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/Слайд6.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/Слайд7.JPG" class="cover">
+</section>
+<section class="slide">
+    <img src="images/x.png" class="cover">
+</section>
+<section class="slide">
+    <h2>Обратимся ещё раз к ТЗ</h2>
+    <ol>
+        <li class="next">Сущности имеют строго определенный набор атрибутов</li>
+        <li class="next">Сущностей на начальном этапе будет > 6-7 и кол-во будет расти</li>
+        <li class="next">Сущности будут связаны многие-ко-многим</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2 class="shout">Связи решают всё</h2>
+</section>
+<!--<section class="slide">-->
+<!--    <img src="images/Слайд8.JPG" class="cover">-->
+<!--</section>-->
+<section class="slide">
+    <img src="images/Слайд12.JPG" class="cover">
+</section>
+<section class="slide">
+    <h2>История связей в реляционных СУБД</h2>
+    <ol>
+        <li class="next">Изначально не несли в себе потребности в сложных связях</li>
+        <li class="next">Из-за реалий прошлого неудобства работы реляционной модели в условиях сильно связанных данных
+            были проигнорированы
+        </li>
+        <li class="next">Упростила сетевую и иерархическую модели</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>Связи в реляционных СУБД</h2>
+    <p>В классике бывают трёх типов: </p>
+    <ol>
+        <li class="next">Внутреннее соединение (INNER JOIN или просто JOIN)</li>
+        <li class="next">Левое/Правое/Полное внешнее соединение (LEFT/RIGHT/FULL OUTER JOIN или просто LEFT JOIN)</li>
+        <li class="next">Полусоединения и антисоединения. Явных нет, но к ним приводят EXISTS и NOT EXISTS.</li>
+    </ol>
+</section>
+<section class="slide">
+    <img src="images/Презентация1.jpg" class="cover">
+</section>
+<section class="slide">
+    <h2>Это всё - логика</h2>
+    <ol>
+        <li class="next">БД реляционные, поэтому на низком уровне всё также работают по правилам реляционной алгебры
+        </li>
+        <li class="next">На больших объёмах данных и когда связей между таблицами много - система деградирует</li>
+        <li class="next">Сам SQL стандартизирован и строг, но не всегда гибок и удобен</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>Над этим работают</h2>
+    <ol>
+        <li class="next">Развиваются сами способы соединений
+            <ul>
+                <li>Nested loop</li>
+                <li>Hash Join</li>
+                <li>Merge Join</li>
+            </ul>
+        </li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>Nested loop</h2>
+    <ul>
+        <li class="next">Вложенный = (внутренний + внешний) * n раз</li>
+        <li class="next">Для каждой строки во внутр. цикле перебираются все строки во внешнем цикле, пока не
+            соединятся
+        </li>
+        <li class="next">Рез-ты внешнего цикла пишутся в work_mem, затем в файл</li>
+    </ul>
+</section>
+<section class="slide">
+    <img src="images/single.jpg" class="cover">
+</section>
+<section class="slide">
+    <h2>Hash join</h2>
+    <ul>
+        <li class="next">В Nested loop куски таблицы срезами кладутся в память/файл</li>
+        <li class="next">В Hash join по таблицам внутреннего цикла строится хеш-таблица</li>
+        <li class="next">Если в ней есть запись, которая удовлетворяет условиям - очередной обход цикла не происходит</li>
+        <li class="next">Работает по принципу "холодного" списка</li>
+    </ul>
+</section>
+<section class="slide">
+    <img src="images/list.jpg" class="cover">
+</section>
+<section class="slide">
+    <h2>Merge Join</h2>
+    <ul>
+        <li class="next">Работа с набором строк, который может читать одновременно</li>
+        <li class="next">Получив строку внешнего набора в паралл. режиме, строчки внутреннего набора перебираются последовательно</li>
+        <li class="next">Рез-ты внешнего цикла пишутся в work_mem, затем в файл</li>
+    </ul>
+</section>
+<section class="slide">
+    <img src="images/parallel.jpg" class="cover">
+</section>
+<section class="slide">
+    <img src="images/basket.jpg" class="cover">
+</section>
+<section class="slide">
+    <h2>Альтернативный взгляд на postgres</h2>
+    <ul>
+        <li class="next">Apache AGE</li>
+        <li class="next">AgensGraph</li>
+        <li class="next">Самоделки = рекурсия</li>
+    </ul>
+</section>
+<section class="slide">
+    <img src="images/portal.jpg" class="cover">
+</section>
+<section class="slide">
+    <h2>Связи в графовых СУБД</h2>
+    <ol>
+        <li class="next">Представление - Вершины и рёбра, которые можно дополнить скалярными атрибутами</li>
+        <li class="next">Навигация по глубоким и длинным цепочкам ускорена</li>
+        <li class="next">Есть - шаблон обхода графа, безиндексная смежность. Нет - поиска по индексу и определение
+            стратегий соединения
+        </li>
+        <li class="next">Доступ к узлам и отношениям - это доступ к ячейке памяти</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2 class="shout">Бенчмарки</h2>
+</section>
+<section class="slide">
+    <img src="images/comp.jpg" class="cover">
+</section>
+<section class="slide">
+    <h2>Выбор графовой БД</h2>
+    <ol>
+        <li class="next">Amazon Neptune, Neo4j, ArangoDB</li>
+        <li class="next">ArangoDB - мультимодельная</li>
+        <li class="next">Amazon Neptune - сложно разворачивать</li>
+        <li class="next">Neo4j</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Neo4j</h2>
+    <ol>
+        <li class="next">Поставим через докер</li>
+        <li class="next">Поднимется сама и на 7474 поднимет UI</li>
+        <li class="next">В UI разделит время выполнения запроса от отрисовки</li>
+        <li class="next">Started streaming 1 records after 11 ms and completed after 22 ms</li>
+    </ol>
+</section>
+<section class="slide">
+        <pre style="font-family:monospace; font-size: 25px;"><code>
+            docker run \
+            --restart always \
+            --publish=7474:7474 --publish=7687:7687 \
+            neo4j:5.19.0
+        </code></pre>
+</section>
+<section class="slide">
+    <img src="images/neo4j.png" class="cover">
+</section>
+
+<section class="slide">
+    <img src="images/code-window.png" class="cover">
+</section>
+<section class="slide">
+    <h2 class="shout">Язык запросов CYPHER</h2>
+</section>
+<section class="slide">
+    <h2>CYPHER</h2>
+    <ol>
+        <li class="next">Не похож на SQL</li>
+        <li class="next">Декларативный стиль</li>
+        <li class="next">Описывает путешествие по узлам графа в чел. читаемом виде</li>
+    </ol>
+</section>
+<section class="slide">
+        <pre style="font-family:monospace; font-size: 20px;"><code>
+            MATCH (p1:Person)-[:PARENT]->(p2:Person)
+            RETURN p1, p2
+        </code></pre>
+</section>
+<section class="slide">
+        <pre style="font-family:monospace; font-size: 20px;"><code>
+            CREATE
+            (igor: Person {name:'Igor'}),
+            (misha: Person {name:'Misha'}),
+            (tobin: Actor {name:'Tobin'}),
+            (saw: Movie {name:'Saw'}),
+            (horror: Genre {name:'Horror'}),
+            (saw) -[:HAS_GENRE]-> (horror),
+            (saw) -[:HAS_ACTOR]-> (tobin),
+            (igor) -[:WATCHED]-> (saw),
+            (igor) -[:IS_FRIEND]-> (misha),
+            (igor) -[:IS_SIGN]-> (tobin)
+        </code></pre>
+</section>
+<section class="slide">
+    <img src="images/begin-graph.png" class="cover">
+</section>
+<section class="slide">
+    <img src="images/begin-postgr.png" class="cover">
+</section>
+<section class="slide">
+    <h2>Запросы</h2>
+    <ol>
+        <li class="next">Список пользователей, друзьям друзей которых нравится актёр из n фильма</li>
+        <li class="next">Получить список жанров, которые нравятся пользователям n</li>
+        <li class="next">Получить список фильмов-хорроров, которые смотрели друзья друзей пользователя, но он - нет</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>Условия - количество</h2>
+    <ol>
+        <li class="next">1000 сущностей, 5 связей</li>
+        <li class="next">100000 сущностей, 5 связей</li>
+        <li class="next">1000000 сущностей, 5 связей</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>Условия - частота</h2>
+    <ol>
+        <li class="next">1 запрос</li>
+        <li class="next">Parallel 100</li>
+    </ol>
+</section>
+<section class="slide">
+    <img src="images/PG_1_request_1.png" class="cover">
+</section>
+<section class="slide">
+    <img src="images/NEO4J_1_request.png" class="cover">
+</section>
+<section class="slide">
+    <img src="images/PG_100_request.png" class="cover">
+</section>
+<section class="slide">
+    <img src="images/NEO4J_100_request.png" class="cover">
+</section>
+<section class="slide">
+    <h2>Графы имеет смысл рассмотреть, когда</h2>
+    <ol>
+        <li class="next">Схема вашей БД "нативно" представляется в виде графа</li>
+        <li class="next">Связей так много, что таблицы связей больше таблиц данных</li>
+        <li class="next">Типовые запросы получения данных сложны и состоят из множества join-ов</li>
+        <li class="next">Есть необходимость в частом получении данных или глубина поиска достаточно большая (>3)</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>Но нужно учитывать, что</h2>
+    <ol>
+        <li class="next">Во всех случаях кроме тех, что выше - реляционная БД подойдёт гораздо лучше</li>
+        <li class="next">Для работы графовых СУБД необходимо 2гб ОЗУ, для стабильной работы - 16гб</li>
+        <li class="next">Конкретно Neo4j - проприетарная</li>
+    </ol>
+</section>
+<section class="slide">
+    <img src="images/think.jpg" class="cover">
+</section>
+<section class="slide">
+    <h2>Общепринятые сферы применения графов</h2>
+    <ol>
+        <li class="next">Сервисы рекомендаций</li>
+        <li class="next">Социальные сети (Instagram)</li>
+        <li class="next">Системы контроля доступа (Мой офис)</li>
+        <li class="next">Системы оповещения (МЧС)</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>Применение в рефакторинге / рабочем проекте</h2>
+    <ol>
+        <li class="next">При распиле монолита часть БД вынести в графы</li>
+        <li class="next">Совместить в своём приложении несколько СУБД</li>
+        <li class="next">Драйверы есть на PHP</li>
+    </ol>
+</section>
+<section class="slide">
+    <h2>Выводы</h2>
+    <ol>
+        <li class="next">При проектировании своих приложений - нужно обращать внимание на количество и механику связей</li>
+        <li class="next">На больших объёмах и при достаточной ОЗУ лучше себя покажут графы</li>
+    </ol>
+</section>
+
+<footer class="badge">
+    <a href="https://github.com/shower/shower">Fork me on GitHub</a>
+</footer>
+
+<div class="progress"></div>
+
+<script src="shower/shower.js"></script>
+<!-- Copyright © 2024 Yours Truly, Famous Inc. -->
+
+</body>
+</html>
